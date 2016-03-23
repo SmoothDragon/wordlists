@@ -4,10 +4,12 @@ Word lists for anagramming and word searches
 Installs dictionaries in /usr/share/dict for other programs to use.
 
 Install::
+
   make
   sudo make install
 
 Remove::
+
   sudo make uninstall
   make clean
 
