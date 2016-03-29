@@ -1,6 +1,5 @@
 DESTDIR = /usr
-INSTALL = /usr/bin/install -p 
-INSTALL_DIR = /bin/cp -rf
+INSTALL = /bin/cp --preserve=mode,timestamps 
 
 DEF = $(wildcard share/dict/*.def)
 TXT = $(DEF:.def=.txt)
@@ -14,8 +13,8 @@ build: $(TXT)
 
 install: build
 	mkdir -p $(DESTDIR)/share/dict
-	/bin/cp $(DEF) $(DESTDIR)/share/dict
-	/bin/cp $(TXT) $(DESTDIR)/share/dict
+	$(INSTALL) $(DEF) $(DESTDIR)/share/dict
+	$(INSTALL) $(TXT) $(DESTDIR)/share/dict
 
 uninstall:
 	-rm -f $(DEF_TRG)
